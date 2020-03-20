@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="space.css" >
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages:["orgchart"]});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('string', 'Manager');
+        data.addColumn('string', 'ToolTip');
+
+        data.addRows([
+          [{'v':'falcon1', 'f':'Falcon 1<div><img src="images/falcon1.jpg" width="40%"</div>'}, '', 'Falcon 1 development'],
+          [{'v':'frame', 'f':'First Stage<div><img src="images/rocket-frame.jpg" width="60%"></div>'}, 'falcon1', ''],
+          [{'v':'engines', 'f':'Engines<div><img src="images/engine.png" width="20%"></div>'}, 'falcon1', ''],
+          [{'v':'fuel', 'f':'Fuel<div><img src="images/rocket-fuel.jpg" width="40%"></div>'}, 'falcon1', ''],
+          ['Oxygen<div><img src="images/oxygen_tank.jpg" width="40%"></div><div><a href="build">Buy</a></div>', 'fuel', ''],
+          ['Gas<div><img src="images/fuel_tank.jpg" width="40%"></div><div><a href="build">Buy</a></div>', 'fuel', ''],
+          ['Engine 1<div><img src="images/engine.png" width="20%"></div><div><a href="build">Build</a></div>', 'engines', ''],
+          ['Engine 2<div><img src="images/engine.png" width="20%"></div><div><a href="build">Build</a></div>', 'engines', ''],
+          ['Oxygen tank<div><img src="images/oxygen_rocket_tank.jpg" width="50%"></div><div><a href="build">Build</a></div>', 'frame', ''],
+          ['Gas tank<div><img src="images/oxygen_rocket_tank.jpg" width="50%"></div><div><a href="build">Build</a></div>', 'frame', ''],
+          ['Controle Computer<div><img src="images/rocket-computer.jpg" width="50%"></div><div><a href="build">Build</a></div>', 'frame', ''],
+        ]);
+
+        // Create the chart.
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+        // Draw the chart, setting the allowHtml option to true for the tooltips.
+        chart.draw(data, {'allowHtml':true});
+      }
+   </script>
+    </head>
+    <body>
+    <div id="header">
+	<div id="money">Money $1.000.000</div>
+	<div id="gold">Gold 10.000</div>
+	<div id="level">Level 1</div>
+    </div>
+    <div id="menu">
+	<a href="buy" class="button">Rocket Development</a>
+	<a href="buy" class="button">Launch Site</a>
+	<a href="buy" class="button">Marketplace</a>
+	<a href="buy" class="button">Profile</a>
+	<a href="buy" class="button">Leaderboard</a>
+	<a href="buy" class="button">Satelitte Customers</a>
+    <div>
+    <h1>Rocket Development</h1>
+    <div id="chart_div"></div>
+  </body>
+</html>
